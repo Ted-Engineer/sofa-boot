@@ -65,10 +65,12 @@ public class ComponentManagerImpl implements ComponentManager {
         return names;
     }
 
+    @Override
     public ComponentInfo getComponentInfo(ComponentName name) {
         return registry.get(name);
     }
 
+    @Override
     public boolean isRegistered(ComponentName name) {
         return registry.containsKey(name);
     }
@@ -116,6 +118,7 @@ public class ComponentManagerImpl implements ComponentManager {
         doRegister(componentInfo);
     }
 
+    @Override
     public ComponentInfo registerAndGet(ComponentInfo componentInfo) {
         return doRegister(componentInfo);
     }
@@ -167,6 +170,7 @@ public class ComponentManagerImpl implements ComponentManager {
         return ci;
     }
 
+    @Override
     public void unregister(ComponentInfo componentInfo) throws ServiceRuntimeException {
         ComponentName componentName = componentInfo.getName();
         registry.remove(componentName);
@@ -181,6 +185,7 @@ public class ComponentManagerImpl implements ComponentManager {
         componentInfo.unregister();
     }
 
+    @Override
     public Collection<ComponentInfo> getComponentInfosByType(ComponentType type) {
         List<ComponentInfo> componentInfos = new ArrayList<>();
 
